@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Musthafa | Data Analyst Portfolio</title>
+<meta name="description" content="Portfolio of Muhammad Musthafa, a mathematics graduate moving into data analysis. Power BI, Python and Excel projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F9FB;
+  --surface: #FFFFFF;
+  --ink: #0F1B2D;
+  --muted: #55657A;
+  --line: #E2E8F0;
+  --brand: #0F766E;
+  --brand-soft: #D8F3EF;
+  --brand-ink: #FFFFFF;
+  --warm: #E8590C;
+  --shadow: 0 1px 2px rgba(15,27,45,.05), 0 10px 30px rgba(15,27,45,.07);
+  --f-head: "Sora", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0B1220;
+    --surface: #121B2E;
+    --ink: #EAF0F8;
+    --muted: #9FB0C6;
+    --line: #22304A;
+    --brand: #2DD4BF;
+    --brand-soft: #123B3A;
+    --brand-ink: #062623;
+    --warm: #FB923C;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+.container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+a { color: var(--brand); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3, h4 { font-family: var(--f-head); letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+section { padding-block: clamp(3.5rem, 8vw, 6rem); scroll-margin-top: 4rem; }
+.eyebrow { display: inline-block; margin-bottom: .75rem; font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; margin-bottom: .75rem; }
+.section-intro { max-width: 40rem; color: var(--muted); margin: 0 0 2.5rem; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; flex-wrap: wrap; }
+.logo { display: inline-flex; align-items: center; gap: .6rem; font: 700 1.05rem var(--f-head); color: var(--ink); text-decoration: none; }
+.logo-mark { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 10px; background: var(--brand); color: var(--brand-ink); font-size: .9rem; }
+.nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.4rem; margin: 0; padding: 0; list-style: none; }
+.nav ul a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.nav ul a:hover { color: var(--brand); }
+
+/* Hero */
+.hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 7vw, 5rem); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.pill { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .8rem; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font-weight: 700; font-size: .85rem; }
+.pill::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--brand); }
+.hero h1 { margin-top: 1.25rem; font-size: clamp(2.5rem, 6.4vw, 4.4rem); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--brand); }
+.hero p.lead { max-width: 34rem; margin: 1.25rem 0 0; font-size: 1.2rem; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.35rem; border-radius: 12px; font: 700 .98rem var(--f-body); text-decoration: none; border: 1.5px solid var(--brand); background: var(--brand); color: var(--brand-ink); transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn.outline { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.outline:hover { border-color: var(--brand); }
+.meta { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 2rem; color: var(--muted); font-size: .95rem; }
+.meta span::before { content: "•"; margin-right: .5rem; color: var(--brand); }
+
+.snapshot { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); padding: 1.5rem; }
+.snapshot header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
+.snapshot h3 { font-size: 1.05rem; }
+.snapshot small { color: var(--muted); font-weight: 600; }
+.mini-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-bottom: 1.25rem; }
+.mini-stats div { padding: .75rem; border-radius: 12px; background: var(--bg); }
+.mini-stats b { display: block; font: 700 1.3rem var(--f-head); font-variant-numeric: tabular-nums; }
+.mini-stats span { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.snapshot svg { display: block; width: 100%; height: auto; }
+.snapshot p.note { margin: .75rem 0 0; font-size: .82rem; color: var(--muted); }
+
+/* Chart */
+.t { font: 600 11.5px var(--f-body); fill: var(--muted); }
+.tv { font: 700 12px var(--f-body); fill: var(--ink); }
+.gl { stroke: var(--line); stroke-width: 1; }
+.avg { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.bar { fill: var(--brand-soft); }
+.bar.hi { fill: var(--warm); }
+.bar.mid { fill: var(--brand); opacity: .85; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(2rem, 5vw, 4rem); }
+@media (max-width: 860px) { .about-grid { grid-template-columns: minmax(0, 1fr); } }
+.about p { margin: 0 0 1rem; color: var(--muted); }
+.about p:first-of-type { color: var(--ink); font-size: 1.15rem; }
+.facts { display: grid; gap: .9rem; margin: 0; padding: 0; list-style: none; }
+.facts li { display: flex; gap: 1rem; padding: 1rem 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.facts b { display: block; font-family: var(--f-head); font-size: 1rem; }
+.facts span { color: var(--muted); font-size: .95rem; }
+.icon { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 10px; background: var(--brand-soft); color: var(--brand); font-weight: 800; font-family: var(--f-head); }
+
+/* Projects */
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); padding: clamp(1.4rem, 3.5vw, 2.5rem); }
+.project + .grid-2 { margin-top: 1.5rem; }
+.project-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.project h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.status { padding: .3rem .75rem; border-radius: 999px; background: color-mix(in srgb, var(--warm) 16%, transparent); color: var(--warm); font-weight: 700; font-size: .8rem; white-space: nowrap; }
+.tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.tags li { padding: .25rem .7rem; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); font-size: .82rem; font-weight: 600; color: var(--muted); }
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+@media (max-width: 860px) { .cols { grid-template-columns: minmax(0, 1fr); } }
+.col h4 { margin-bottom: .5rem; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); font-family: var(--f-body); font-weight: 800; }
+.col p { margin: 0 0 .6rem; color: var(--muted); font-size: .98rem; }
+.stat-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .75rem; margin: 1.75rem 0; }
+@media (max-width: 860px) { .stat-row { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stat-row div { padding: .9rem; border-radius: 14px; background: var(--bg); }
+.stat-row b { display: block; font: 700 1.35rem var(--f-head); font-variant-numeric: tabular-nums; }
+.stat-row span { font-size: .78rem; font-weight: 600; color: var(--muted); }
+details { margin-top: .5rem; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); }
+summary { cursor: pointer; padding: .9rem 1.1rem; font-weight: 700; }
+.tablewrap { overflow-x: auto; padding: 0 1.1rem 1.1rem; }
+table { width: 100%; min-width: 30rem; border-collapse: collapse; font-size: .93rem; }
+th { text-align: left; padding: .5rem .6rem; color: var(--muted); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+td { padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+.project-links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-top: 1.5rem; font-weight: 700; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .grid-2 { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; }
+.card h3 { font-size: 1.3rem; margin-bottom: .75rem; }
+.card p { margin: 0 0 .9rem; color: var(--muted); }
+.card.dashed { border-style: dashed; background: transparent; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+@media (max-width: 900px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+.skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; }
+.skill-group h3 { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; font-size: 1.15rem; }
+.dot { width: .7rem; height: .7rem; border-radius: 50%; background: var(--brand); }
+.dot.half { background: linear-gradient(90deg, var(--brand) 50%, var(--line) 50%); }
+.dot.empty { background: var(--line); }
+.skill-group ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .8rem; }
+.skill-group li b { display: block; font-size: 1rem; }
+.skill-group li span { color: var(--muted); font-size: .92rem; }
+
+/* Timeline */
+.timeline { position: relative; display: grid; gap: 1.25rem; margin: 0; padding: 0 0 0 1.6rem; list-style: none; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 1.2rem 1.4rem; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.timeline li::before { content: ""; position: absolute; left: calc(-1.6rem - 7px); top: 1.6rem; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 3px solid var(--bg); box-sizing: content-box; }
+.timeline .when { font-size: .85rem; font-weight: 700; color: var(--brand); font-variant-numeric: tabular-nums; }
+.timeline h3 { font-size: 1.2rem; margin: .2rem 0; }
+.timeline p { margin: 0; color: var(--muted); }
+
+/* Contact */
+.contact-box { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; padding: clamp(1.6rem, 4vw, 3rem); border-radius: 24px; background: var(--ink); color: var(--bg); }
+@media (max-width: 760px) { .contact-box { grid-template-columns: minmax(0, 1fr); } }
+.contact-box h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); margin-bottom: .6rem; }
+.contact-box p { margin: 0; opacity: .8; }
+.contact-actions { display: grid; gap: .7rem; }
+.contact-actions .btn { justify-content: center; }
+.contact-actions .btn.outline { color: var(--bg); border-color: color-mix(in srgb, var(--bg) 35%, transparent); }
+.addr { font-weight: 700; overflow-wrap: anywhere; }
+.copy { cursor: pointer; }
+footer { padding-block: 2rem 3rem; color: var(--muted); font-size: .9rem; text-align: center; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="container">
+    <a class="logo" href="#top"><span class="logo-mark">MM</span>Muhammad Musthafa</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">Open to data analyst roles</span>
+        <h1>Hi, I'm Muhammad. I turn <em>messy data</em> into clear dashboards.</h1>
+        <p class="lead">Mathematics graduate and aspiring data analyst. I build in Power BI, Python and Excel, and I'm working towards machine learning.</p>
+        <div class="actions">
+          <a class="btn" href="#projects">View my projects</a>
+          <a class="btn outline" href="#contact">Get in touch</a>
+        </div>
+        <div class="meta">
+          <span>Belfast, UK</span>
+          <span>Mathematics, bachelor's and master's</span>
+        </div>
+      </div>
+
+      <aside class="snapshot" aria-label="Latest project snapshot">
+        <header>
+          <h3>Retail Sales Dashboard</h3>
+          <small>Latest project</small>
+        </header>
+        <div class="mini-stats">
+          <div><b>£2.03M</b><span>Revenue</span></div>
+          <div><b>39.1%</b><span>Margin</span></div>
+          <div><b>+15.7%</b><span>Jan–Oct YoY</span></div>
+        </div>
+        <svg viewBox="0 0 360 160" role="img" aria-label="Profit margin by category: Beauty 62 percent, Clothing 57 percent, Electronics 25 percent, overall 39.1 percent.">
+          <title>Profit margin by category</title>
+          <line class="gl" x1="84" y1="22" x2="84" y2="124"/>
+          <line class="gl" x1="152.6" y1="22" x2="152.6" y2="124"/>
+          <line class="gl" x1="221.1" y1="22" x2="221.1" y2="124"/>
+          <line class="gl" x1="289.7" y1="22" x2="289.7" y2="124"/>
+          <line class="gl" x1="84" y1="124" x2="324" y2="124"/>
+          <rect class="bar mid" x="84" y="28" width="212.6" height="22" rx="4"/>
+          <rect class="bar mid" x="84" y="62" width="195.4" height="22" rx="4"/>
+          <rect class="bar hi" x="84" y="96" width="85.7" height="22" rx="4"/>
+          <line class="avg" x1="218.1" y1="20" x2="218.1" y2="124"/>
+          <text class="t" x="78" y="43" text-anchor="end">Beauty</text>
+          <text class="t" x="78" y="77" text-anchor="end">Clothing</text>
+          <text class="tv" x="78" y="111" text-anchor="end">Electronics</text>
+          <text class="tv" x="302" y="43">62%</text>
+          <text class="tv" x="285" y="77">57%</text>
+          <text class="tv" x="175" y="111">25%</text>
+          <text class="t" x="218.1" y="11" text-anchor="middle">All sales 39.1%</text>
+          <text class="t" x="84" y="142" text-anchor="middle">0%</text>
+          <text class="t" x="152.6" y="142" text-anchor="middle">20%</text>
+          <text class="t" x="221.1" y="142" text-anchor="middle">40%</text>
+          <text class="t" x="289.7" y="142" text-anchor="middle">60%</text>
+        </svg>
+        <p class="note">Profit margin by category. Synthetic data generated for the project.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about">
+        <span class="eyebrow">About me</span>
+        <h2 class="section-title">From mathematics to data analysis</h2>
+        <p>I studied mathematics at bachelor's and master's level in the UK, and spent 2022 as a data analyst intern in Bengaluru.</p>
+        <p>I now work at Sainsbury's while building a portfolio of data projects. Today that means Power BI, Power Query, DAX, Python and Excel. SQL and machine learning are next on the list.</p>
+        <p>My plan is to start as a data analyst and grow into a machine learning engineer.</p>
+      </div>
+      <ul class="facts" aria-label="Highlights">
+        <li><span class="icon">∑</span><div><b>Mathematics degrees</b><span>Bachelor's and master's, UK</span></div></li>
+        <li><span class="icon">▦</span><div><b>Power BI project</b><span>20,550 messy rows cleaned and modelled</span></div></li>
+        <li><span class="icon">↗</span><div><b>Learning in public</b><span>Projects added to GitHub as they are finished</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <span class="eyebrow">Projects</span>
+      <h2 class="section-title">Selected work</h2>
+      <p class="section-intro">Each project covers the full workflow: messy data, cleaning, modelling, measures and a dashboard that answers real business questions.</p>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>Retail Sales Dashboard</h3>
+          <span class="status">Report build in progress</span>
+        </div>
+        <ul class="tags">
+          <li>Power BI</li><li>Power Query (M)</li><li>DAX</li><li>Python</li><li>Synthetic data</li>
+        </ul>
+
+        <div class="cols">
+          <div class="col">
+            <h4>The problem</h4>
+            <p>A 20,550-row retail sales file full of deliberate mess, and four questions a manager would ask: how fast revenue and profit are growing, which categories, regions and channels drive them, where margin is strong or weak, and how big the returns problem is.</p>
+          </div>
+          <div class="col">
+            <h4>What I did</h4>
+            <p>Cleaned the file in Power Query, fixing nine kinds of mess. Built a date table and DAX measures for revenue, profit, margin, returns and year-on-year comparisons.</p>
+            <p>Wrote a seeded Python script that generates the dataset so anyone can reproduce it.</p>
+          </div>
+          <div class="col">
+            <h4>What I found</h4>
+            <p>Electronics brings in 34% of revenue on the thinnest margin, 25%. Beauty (62%) and Clothing (57%) earn far more per sale. November and December made up 27% of 2025 revenue. London is the largest region and online the biggest channel.</p>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div><b>£2.03M</b><span>Revenue</span></div>
+          <div><b>£0.79M</b><span>Profit</span></div>
+          <div><b>39.1%</b><span>Profit margin</span></div>
+          <div><b>19,920</b><span>Orders after cleaning</span></div>
+          <div><b>+15.7%</b><span>Jan–Oct 2026 vs 2025</span></div>
+          <div><b>5.8%</b><span>Orders returned</span></div>
+        </div>
+
+        <details>
+          <summary>See the cleaning log (9 fixes)</summary>
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th scope="col">In the raw file</th><th scope="col">Fix in Power Query</th></tr></thead>
+              <tbody>
+                <tr><td>550 exact duplicate rows</td><td>Remove duplicates</td></tr>
+                <tr><td>Dates in 3 formats</td><td>Parse as UK day-first</td></tr>
+                <tr><td>Prices stored as text with a pound sign</td><td>Strip symbols, convert to number</td></tr>
+                <tr><td>60 missing unit prices</td><td>Fill from the same product's known price</td></tr>
+                <tr><td>Mixed case, extra spaces, typos</td><td>Trim, proper-case, replace typos</td></tr>
+                <tr><td>Missing segment, city, channel, payment</td><td>Replace with "Unknown"</td></tr>
+                <tr><td>Discount as 10 instead of 0.10</td><td>Divide by 100, blanks become 0</td></tr>
+                <tr><td>Returned flag as Y, yes, TRUE</td><td>Standardise to Yes / No</td></tr>
+                <tr><td>80 invalid quantities (negative, zero, 100+)</td><td>Remove rows outside 1 to 20</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <p class="project-links">
+          <a href="https://github.com/Musthafa097/data-visualization-portfolio">View on GitHub →</a>
+          <a href="https://github.com/Musthafa097/data-visualization-portfolio/blob/main/docs/BUILD_GUIDE.md">Build guide →</a>
+        </p>
+      </article>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>British Airways data science</h3>
+          <ul class="tags"><li>Virtual experience</li><li>Python</li><li>Data analysis</li><li>Predictive modelling</li></ul>
+          <p>Worked through airline booking and lounge eligibility tasks, looking at how data can support operational planning and which inputs go into a model.</p>
+        </article>
+        <article class="card dashed">
+          <h3>More on the way</h3>
+          <p>New Power BI projects get their own folder in my GitHub repository as they are finished.</p>
+          <p><a href="https://github.com/Musthafa097/data-visualization-portfolio"><strong>Follow the repository →</strong></a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <span class="eyebrow">Skills</span>
+      <h2 class="section-title">What I use and what I'm learning</h2>
+      <p class="section-intro">Grouped by how far along I am, so you can see what is already in my projects and what is coming.</p>
+      <div class="skills">
+        <div class="skill-group">
+          <h3><span class="dot"></span>Hands-on</h3>
+          <ul>
+            <li><b>Power BI</b><span>Building the Retail Sales Dashboard</span></li>
+            <li><b>Power Query (M)</b><span>Cleaning 20,550 rows with nine kinds of mess</span></li>
+            <li><b>DAX</b><span>Date table, margin, returns and year-on-year measures</span></li>
+            <li><b>Python</b><span>A seeded data generator, plus the British Airways tasks</span></li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="dot half"></span>Learning now</h3>
+          <ul>
+            <li><b>Python and pandas</b><span>Basics covered, working through the rest</span></li>
+            <li><b>Excel for data analysis</b><span>Step by step, in Excel for the web</span></li>
+            <li><b>Intro to Machine Learning</b><span>Kaggle's course</span></li>
+            <li><b>Maths for machine learning</b><span>Working through the Deisenroth, Faisal and Ong text</span></li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="dot empty"></span>Next</h3>
+          <ul>
+            <li><b>SQL</b><span>Querying and joining real tables</span></li>
+            <li><b>Machine learning</b><span>The longer-term goal after starting as a data analyst</span></li>
+            <li><b>Terminal and Linux</b><span>Working comfortably from the command line</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <span class="eyebrow">Experience</span>
+      <h2 class="section-title">Work and education</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">Feb 2023 – present</span>
+          <h3>Online Assistant Manager</h3>
+          <p>Sainsbury's, London</p>
+        </li>
+        <li>
+          <span class="when">Jun – Nov 2022</span>
+          <h3>Data Analyst Intern</h3>
+          <p>Zensign Global, Bengaluru</p>
+        </li>
+        <li>
+          <span class="when">Education</span>
+          <h3>Mathematics, bachelor's and master's</h3>
+          <p>United Kingdom</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <h2>Let's talk about data</h2>
+          <p>I'm looking for data and business analyst roles. The quickest way to reach me is email: <span class="addr" id="mail-addr">mohdmusthafa097@gmail.com</span></p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn" href="mailto:mohdmusthafa097@gmail.com">Send an email</a>
+          <button class="btn outline copy" id="copy-mail" type="button">Copy address</button>
+          <a class="btn outline" href="https://github.com/Musthafa097">GitHub profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Muhammad Musthafa · Belfast, UK</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-mail');
+  var addr = document.getElementById('mail-addr');
+  if (!btn || !addr) return;
+  function flash(label) {
+    btn.textContent = label;
+    setTimeout(function () { btn.textContent = 'Copy address'; }, 1800);
+  }
+  function selectText() {
+    try {
+      var r = document.createRange();
+      r.selectNodeContents(addr);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      flash('Selected');
+    } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    var text = addr.textContent.trim();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { flash('Copied'); }, selectText);
+    } else { selectText(); }
+  });
+})();
+</script>
+</body>
+</html>
